@@ -8,19 +8,21 @@ const app = express();
 
 app.set("json spaces", 4);
 
-// Define the directory paths
-const __dirname = path.resolve();
-// const __filename = path.resolve(__dirname, "index.js"); // Assuming this script is located at the project root
+// Define the folder path relative to the current working directory
+const folderPath = path.join(process.cwd(), "uploads/images"); // Replace 'uploads/images' with your folder name
 
-const folderPath = path.join(__dirname, "uploads/images"); // Replace 'uploads/images' with your folder name
-
-// Check if the directory exists, create it if not
-if (!fs.existsSync(folderPath)) {
-  fs.mkdirSync(folderPath, { recursive: true });
-  console.log(`Folder created.`);
-} else {
-  console.log(`Folder already exists.`);
+// Function to check and create folder
+function ensureFolderExists(folderPath) {
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+    console.log("Folder created.");
+  } else {
+    console.log("Folder already exists.");
+  }
 }
+
+// Call the function
+ensureFolderExists(folderPath);
 
 // Serve static files from the uploads/images directory
 app.use("/uploads/images", express.static(folderPath));
