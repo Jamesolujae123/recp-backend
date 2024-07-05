@@ -10,7 +10,7 @@
     "test": "NODE_ENV=test mocha test/**/*.js",
     "start": "babel-node index.js",
     "dev": "nodemon --exec npm start",
-    "build": "npm run clean && babel -d ./build ./index.js -s"
+    "build": " npm i && npm run clean && babel -d ./build ./index.js -s"
   },
   "apidoc": {
     "name": "Node Task API - Documentation",
