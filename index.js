@@ -10,7 +10,7 @@ app.set("json spaces", 4);
 
 // Define the directory paths
 const __dirname = path.resolve();
-const __filename = path.resolve(__dirname, "index.js"); // Assuming this script is located at the project root
+// const __filename = path.resolve(__dirname, "index.js"); // Assuming this script is located at the project root
 
 const folderPath = path.join(__dirname, "uploads/images"); // Replace 'uploads/images' with your folder name
 
