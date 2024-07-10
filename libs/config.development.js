@@ -1,4 +1,4 @@
-import logger from "./logger.js";
+const logger = require("./logger.js");
 require("dotenv").config();
 
 module.exports = {
@@ -6,10 +6,10 @@ module.exports = {
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   params: {
-    host: process.env.DB_HOST,
-    dialect: "mysql",
+    dialect: "sqlite",
+    storage: "recipes_db.sqlite",
     logging: (sql) => {
-      logger.info([${new Date()}] ${sql});
+      logger.info(`[${new Date()}] ${sql}`);
     },
     define: {
       underscored: true,
