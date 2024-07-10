@@ -9,7 +9,7 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: "mysql",
     logging: (sql) => {
-      logger.info([${new Date()}] ${sql});
+      logger.info(`[${new Date()}] ${sql}`);
     },
     define: {
       underscored: true,
